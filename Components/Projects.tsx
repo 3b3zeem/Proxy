@@ -3,8 +3,10 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import dynamic from "next/dynamic";
 import React from "react";
+import type { FC } from "react";
+import type { Settings } from "react-slick";
 
-const Slider = dynamic(() => import("react-slick"), { ssr: false });
+const Slider = dynamic(() => import("react-slick"), { ssr: false }) as unknown as FC<any>;
 
 const NextArrow = (props: any) => {
   const { onClick } = props;
@@ -31,7 +33,7 @@ const PrevArrow = (props: any) => {
 };
 
 const Projects = () => {
-  const settings = {
+  const settings: Settings = {
     dots: false,
     infinite: true,
     speed: 500,
