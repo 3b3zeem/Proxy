@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutPage = () => {
   return (
-    <div className="mx-auto 2xl:max-w-[1440px] xl:max-w-[1300px] px-6 lg:px-20 3xl:px-0 min-h-screen flex flex-col justify-start text-white font-[GIL] md:h-[200vh] h-[150vh] py-12">
+    <div className="mx-auto 2xl:max-w-[1440px] xl:max-w-[1300px] px-6 lg:px-20 3xl:px-0 min-h-screen flex flex-col justify-start text-white font-[GIL] md:h-[200vh] h-[150vh] py-12 pt-20">
       <div className="flex items-center justify-evenly md:flex-row flex-col">
         <h1 className="font-bold flex flex-col md:mb-0 mb-10">
           <span className="md:text-5xl text-4xl font-[Lelevien] tracking-[7px]">PROXY</span>

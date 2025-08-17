@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [active, setActive] = useState("home");
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -34,13 +35,20 @@ const Navbar = () => {
     { href: "/getApp", key: "app", labelKey: "app" },
   ];
 
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
+  };
+
   return (
     <>
       {/* Navbar */}
       <div
-        className={`sticky top-0 left-0 w-full z-50 transition-all duration-300 px-6 lg:px-20 3xl:px-0 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 lg:px-20 3xl:px-0 ${
           isScrolled
-            ? "bg-black/60 backdrop-blur-lg shadow-md py-5"
+            ? "bg-black/40 backdrop-blur-lg shadow-md py-5"
             : "bg-transparent py-4"
         }`}
       >
@@ -56,17 +64,16 @@ const Navbar = () => {
             />
           </Link>
 
-          <div className="hidden lg:flex h-full gap-12">
+          <div className="hidden md:flex h-full gap-12">
             {NAV_LINKS.map((link) => (
               <Link
                 href={link.href}
                 key={link.key}
-                onClick={() => setActive(link.key)}
                 className={`capitalize relative text-[16px] font-normal text-[#eaeaea] flex items-center justify-center cursor-pointer pb-1.5 transition-all duration-150 hover:font-bold before:content-[''] before:absolute before:bottom-0 before:h-[2px] before:bg-[#eaeaea] before:transition-all before:duration-300 before:ease-out ${
-                  active === link.key
+                  isActive(link.href)
                     ? "before:w-full before:left-0 font-bold"
                     : "before:w-0 before:left-1/2 hover:before:w-full hover:before:left-0"
-                  }
+                }
                 `}
               >
                 {link.labelKey}
@@ -74,22 +81,28 @@ const Navbar = () => {
             ))}
           </div>
 
-          <Image
-            src={"menu.svg"}
-            alt="menu"
-            width={32}
-            height={32}
+          <svg
             onClick={() => setIsOpen(true)}
-            className="inline-block cursor-pointer lg:hidden"
-            priority
-          />
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-8 h-8 cursor-pointer inline-block md:hidden"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 8h16M4 16h16"
+            />
+          </svg>
         </div>
       </div>
 
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-400 lg:hidden"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-400 md:hidden"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
@@ -127,11 +140,10 @@ const Navbar = () => {
               key={link.key}
               href={link.href}
               className={`capitalize relative text-[16px] font-[400] text-[#585858] cursor-pointer pb-1.5 transition-all duration-150 hover:font-bold before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-black before:transition-all before:duration-300 before:ease-out hover:before:w-full hover:before:left-0 ${
-                active === link.key ? "before:w-full font-bold" : ""
+                isActive(link.href) ? "before:w-full font-bold" : ""
               }`}
               onClick={() => {
                 setIsOpen(false);
-                setActive(link.key);
               }}
             >
               {link.labelKey}

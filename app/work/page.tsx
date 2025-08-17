@@ -2,7 +2,7 @@ import React from "react";
 
 const WorkPage = () => {
   return (
-    <div className="flex justify-between flex-col mx-auto h-[200vh] xl:max-w-[1440px] lg:max-w-[1300px] px-6 lg:px-20 3xl:px-0 py-12 font-[Lelevien]">
+    <div className="flex justify-between flex-col mx-auto h-[200vh] xl:max-w-[1440px] lg:max-w-[1300px] px-6 lg:px-20 3xl:px-0 py-12 font-[Lelevien] pt-20">
       <div className="flex items-center justify-center flex-col text-4xl md:mt-20">
         <span>Our</span> Projects
       </div>

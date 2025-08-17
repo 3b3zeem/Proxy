@@ -1,10 +1,21 @@
 import React from "react";
+import Image from "next/image";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 
-export default function ContactPage() {
+const ContactPage = () => {
   return (
-    <div className="h-[150vh] flex flex-col justify-end text-white font-[Lelevien]">
-      <div className="container mx-auto px-4 py-10 text-center">
+    <div className="relative h-[200vh] flex flex-col justify-end text-white font-[Lelevien]">
+      {/* Background */}
+      <Image
+        src="/contact.webp"
+        alt="Contact Background"
+        fill
+        priority
+        className="object-cover object-center scale-x-[-1] -z-10"
+      />
+
+      {/* Content */}
+      <div className="relative px-4 py-10 text-center">
         <h1 className="text-4xl font-bold mb-4">PROXY Media Studio</h1>
         <p className="text-xl mb-6">+965 5255 4215</p>
         <p className="text-lg mb-6">INFO@PROXYMEDIASTUDIO</p>
@@ -37,4 +48,6 @@ export default function ContactPage() {
       </div>
     </div>
   );
-}
+};
+
+export default ContactPage;
