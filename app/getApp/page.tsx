@@ -1,5 +1,11 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Get App | Proxy",
+  description: "Download the Proxy app for the latest updates and features.",
+};
 
 const getAppPage = () => {
   return (

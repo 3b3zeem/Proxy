@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "About Us | Proxy",
+  description: "Learn more about Proxy Media Studio and our creative journey.",
+};
 
 const AboutPage = () => {
   return (

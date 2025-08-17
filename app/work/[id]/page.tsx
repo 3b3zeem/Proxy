@@ -1,5 +1,11 @@
 import React from "react";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Work Details | Proxy",
+  description: "Explore the details of our work at Proxy Media Studio.",
+};
 
 const DetailsPage = () => {
   return (

@@ -1,14 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-export const metadata: Metadata = {
-  title: "Proxy",
-  description: "Proxy Company",
-};
 
 export default function RootLayout({
   children,

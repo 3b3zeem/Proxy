@@ -3,7 +3,13 @@ import Hero from "@/Components/Hero";
 import Projects from "@/Components/Projects";
 import Reels from "@/Components/Reels";
 import Services from "@/Components/Services";
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Home | Proxy",
+  description: "Proxy Company",
+};
 
 export default function Home() {
   return (

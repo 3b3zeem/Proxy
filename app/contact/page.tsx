@@ -1,6 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import { Facebook, Instagram, Youtube } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Proxy",
+  description: "Get in touch with Proxy Media Studio for inquiries and collaborations.",
+};
 
 const ContactPage = () => {
   return (
