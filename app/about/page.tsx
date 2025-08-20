@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import React from "react";
 
 export const metadata: Metadata = {
@@ -8,11 +9,23 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
   return (
-    <div className="mx-auto 2xl:max-w-[1440px] xl:max-w-[1300px] px-6 lg:px-20 3xl:px-0 min-h-screen flex flex-col justify-start text-white font-[GIL] md:h-[200vh] h-[150vh] py-12 pt-20">
-      <div className="flex items-center justify-evenly md:flex-row flex-col">
+    <div className="relative mx-auto flex flex-col justify-start text-white font-[GIL] h-[200vh] py-12 pt-30">
+      <Image
+        src="/about.webp"
+        alt="About Background"
+        fill
+        priority
+        className="object-cover md:object-[center_40%] -z-10"
+      />
+
+      <div className="relative flex items-center justify-evenly md:flex-row flex-col px-6">
         <h1 className="font-bold flex flex-col md:mb-0 mb-10">
-          <span className="md:text-5xl text-4xl font-[Lelevien] tracking-[7px]">PROXY</span>
-          <span className="md:text-2xl text-xl tracking-[10px]">Media Studio</span>
+          <span className="md:text-5xl text-4xl font-[Lelevien] tracking-[7px]">
+            PROXY
+          </span>
+          <span className="md:text-2xl text-xl tracking-[10px]">
+            Media Studio
+          </span>
         </h1>
         <div className="flex flex-col items-start md:border-l-2 md:pl-10 lg:pl-10 pt-10 border-l-0">
           <p className="text-lg mb-6">Hello There</p>
